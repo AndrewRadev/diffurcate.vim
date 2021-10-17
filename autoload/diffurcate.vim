@@ -30,7 +30,12 @@ function! diffurcate#Run() abort
   call mkdir(dir)
 
   tabnew
-  exe 'tcd '.dir
+
+  if exists(':tcd')
+    exe 'tcd '.dir
+  else
+    exe 'cd '.dir
+  endif
 
   for [filename, lines] in items(files)
     let parent = fnamemodify(filename, ':h')
