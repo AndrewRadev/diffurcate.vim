@@ -2,7 +2,7 @@
 
 The plugin comes with only one command, `:Diffurcate`. Open a git diff and execute the command, and it'll open a new tab in a temporary directory that contains separate diffs per file, mirroring the original directory structure. If you happen to have the NERDTree plugin installed, it'll open it as well (happy to add similar functionality for other navigation plugins, just open a github issue).
 
-![Demo](http://i.andrewradev.com/669694cafc1a0423dab556e38d74dc51.gif)
+![Demo](https://user-images.githubusercontent.com/124255/137620939-909ec2bb-cca4-4167-9a04-cfa6ca04d5fe.gif)
 
 You can do this with a file on the filesystem, or just redirect the output from a git command, for example:
 
