@@ -1,7 +1,7 @@
 function! diffurcate#Run() abort
   let files              = {}
   let current_file       = ''
-  let file_start_pattern = 'diff --git \zs.\+\ze '
+  let file_start_pattern = '^diff --git \zs.\+\ze '
 
   let saved_view = winsaveview()
   normal! gg0
@@ -16,7 +16,7 @@ function! diffurcate#Run() abort
   for lineno in range(first_line, line('$'))
     let line = getline(lineno)
 
-    if line =~ file_start_pattern
+    if line =~# file_start_pattern
       let current_file = matchstr(line, file_start_pattern)
       let files[current_file] = []
     elseif current_file == ''
