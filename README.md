@@ -16,6 +16,15 @@ At the moment, this only works on git diffs, but if you'd like to get support fo
 
 The plugin uses Vim's `tempname()` function to create a temporary directory that will be deleted when Vim exits. That's where it creates each individual file. It uses regexes to figure out where the individual diffs start and end, so if it messes something up, it might be the pattern doesn't cover all the right cases -- please open a github issue and we'll figure it out.
 
+## Naming
+
+Picked the name from Doug's suggestion here: <https://twitter.com/douglasfshearer/status/1447145443884994568>
+
+Very grateful for all the ideas from the replies to both of these tweets:
+
+- <https://twitter.com/andrewradev/status/1447138408686661633>
+- <https://twitter.com/andrewradev/status/1447138650051993603>
+
 ## Contributing
 
 Pull requests are welcome, but take a look at [CONTRIBUTING.md](https://github.com/AndrewRadev/diffurcate.vim/blob/main/CONTRIBUTING.md) first for some guidelines. Be sure to abide by the [CODE_OF_CONDUCT.md](https://github.com/AndrewRadev/diffurcate.vim/blob/master/CODE_OF_CONDUCT.md) as well.
