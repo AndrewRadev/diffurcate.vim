@@ -1,11 +1,10 @@
-*diffurcate.txt*	TODO
+*diffurcate.txt*	Split a git diff into separate files
 
 ==============================================================================
 CONTENTS                                        *diffurcate*   *diffurcate-contents*
 
     Installation................................: |diffurcate-installation|
     Usage.......................................: |diffurcate-usage|
-    Settings....................................: |diffurcate-settings|
     Internals...................................: |diffurcate-internals|
     Issues......................................: |diffurcate-issues|
 
@@ -43,24 +42,39 @@ https://github.com/AndrewRadev/diffurcate.vim/releases.
 
 
 ==============================================================================
-USAGE                                                          *diffurcate-usage*
+USAGE                                                         *diffurcate-usage*
+                                                                    *Diffurcate*
 
-TODO
+The plugin comes with only one command, `:Diffurcate`. Open a git diff and
+execute the command, and it'll open a new tab in a temporary directory that
+contains separate diffs per file, mirroring the original directory structure.
+If you happen to have the NERDTree plugin installed, it'll open it as well
+(happy to add similar functionality for other navigation plugins, just open a
+github issue).
+
+You can do this with a file on the filesystem, or just redirect the output
+from a git command, for example:
+>
+    git diff | vim - -R +Diffurcate
+<
+At the moment, this only works on git diffs, but if you'd like to get support
+for other VCS diffs, it shouldn't be too hard to implement.
+
+See the attached gif in the github README for a visual demo.
 
 
 ==============================================================================
-SETTINGS                                                    *diffurcate-settings*
+INTERNALS                                                 *diffurcate-internals*
 
-TODO
+The plugin uses Vim's |tempname()| function to create a temporary directory
+that will be deleted when Vim exits. That's where it creates each individual
+file. It uses regexes to figure out where the individual diffs start and end,
+so if it messes something up, it might be the pattern doesn't cover all the
+right cases -- please open a github issue and we'll figure it out.
 
 
 ==============================================================================
-INTERNALS                                                  *diffurcate-internals*
-
-TODO
-
-==============================================================================
-ISSUES                                                        *diffurcate-issues*
+ISSUES                                                       *diffurcate-issues*
 
 Any issues and suggestions are very welcome on the github bugtracker:
 https://github.com/AndrewRadev/diffurcate.vim/issues

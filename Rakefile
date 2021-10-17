@@ -4,6 +4,5 @@ end
 
 desc "Prepare archive for deployment"
 task :archive do
-  puts "TODO"
-  # sh 'zip -r ~/diffurcate.zip doc/diffurcate.txt'
+  sh 'zip -r ~/diffurcate.zip autoload/ doc/diffurcate.txt plugin/'
 end
