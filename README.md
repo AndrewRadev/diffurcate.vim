@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/AndrewRadev/diffurcate.vim/tree/main.svg?style=shield)](https://circleci.com/gh/AndrewRadev/diffurcate.vim?branch=main)
+
 ## Usage
 
 The plugin comes with only one command, `:Diffurcate`. Open a git diff and execute the command, and it'll open a new tab in a temporary directory that contains separate diffs per file, mirroring the original directory structure. If you happen to have the NERDTree plugin installed, it'll open it as well (happy to add similar functionality for other navigation plugins, just open a github issue).
