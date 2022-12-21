@@ -1,7 +1,7 @@
 function! diffurcate#Run() abort
   let files              = {}
   let current_file       = ''
-  let file_start_pattern = '^diff --git \zs.\+\ze '
+  let file_start_pattern = '\m^diff --git \zs.\+\ze '
 
   let saved_view = winsaveview()
   normal! gg0
