@@ -5,7 +5,7 @@ function! diffurcate#Run() abort
 
   let saved_view = winsaveview()
   normal! gg0
-  let first_line = search(file_start_pattern, 'W')
+  let first_line = search(file_start_pattern, 'Wc')
   call winrestview(saved_view)
 
   if first_line <= 0
