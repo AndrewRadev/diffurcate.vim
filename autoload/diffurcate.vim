@@ -18,6 +18,14 @@ function! diffurcate#Run() abort
 
     if line =~# file_start_pattern
       let current_file = matchstr(line, file_start_pattern)
+
+      if stridx(current_file, 'a/') >= 0
+        let other_file = matchstr(line, ' b/.\+')
+        if other_file != ''
+          let current_file = substitute(current_file, '^a/', '', '')
+        endif
+      endif
+
       let files[current_file] = []
     elseif current_file == ''
       echoerr "File not detected for line: ".line

@@ -84,4 +84,29 @@ describe "Git diffs" do
        license     = "MIT OR Apache-2.0"
     EOF
   end
+
+  specify "works with git diff with a/, b/ prefixes" do
+    write_file 'example.diff', <<~EOF
+      diff --git a/test.txt b/test.txt
+      index e69de29..8020fdb 100644
+      --- a/test.txt
+      +++ b/test.txt
+      @@ -0,0 +1 @@
+      +testing diff
+    EOF
+
+    vim.edit 'example.diff'
+    vim.command 'Diffurcate'
+
+    expect(vim.command('pwd')).to start_with '/tmp'
+
+    vim.edit 'test.txt.diff'
+    expect(vim.buffer_contents).to eq(<<~EOF.strip)
+      index e69de29..8020fdb 100644
+      --- a/test.txt
+      +++ b/test.txt
+      @@ -0,0 +1 @@
+      +testing diff
+    EOF
+  end
 end
